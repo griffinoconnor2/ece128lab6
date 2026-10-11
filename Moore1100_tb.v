@@ -16,7 +16,7 @@ always #5 clk = ~clk;
 //Test Cases
 initial begin
     //Initial Values
-    clk = 1'b0; R = 1'b1; P1 = 1'b0; P2 = 1'b0;
+    clk = 0; R = 1; P1 = 0; P2 = 0;
     #12 R = 1'b0; //release reset
 
     //Test 1: Full Sequence Correct (1100)
