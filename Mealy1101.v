@@ -1,5 +1,5 @@
 module Mealy1101(
-    input P1, P2, CLK, R, //P1 is 1 and P2 is 0
+    input P1, P2, clk, R, //P1 is 1 and P2 is 0
     output reg Z
 );
 
@@ -10,7 +10,7 @@ parameter S0 = 2'b00, S1 = 2'b01, S2 = 2'b10, S3 = 2'b11;
 reg [1:0] PS, NS;
 
 //Always block for updating PS
-always @(posedge CLK or posedge R)
+always @(posedge clk or posedge R)
 begin 
     if (R)
         PS <= S0;
