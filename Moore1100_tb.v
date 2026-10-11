@@ -32,6 +32,16 @@ initial begin
     #10; //Hold inputs (S2)
     #10; //Hold inputs again to break sequence (S0)
 
+    //Test 3: Full Sequence Correct w/ Hold Test (1100)
+    #10 P1 = 1; P2 = 0; //(S1)
+    #10 P0 = 0; P2 = 0; //Test state hold (S1)
+    #10 P1 = 1; P2 = 0; //(S2)
+    #10 P1 = 0; P2 = 0; //Test state hold (S2)
+    #10 P1 = 0; P2 = 1; //(S3)
+    #10 P1 = 0; P2 = 0; //Test state hold (S3)
+    #10 P1 = 0; P2 = 1; //Z should evaluate to 1 (S4)
+    #10 P1 = 0; P2 = 0; // Test state hold (S4, Z remains 1 until next button press)
+    
     //End
     #10 R = 1;
     #10 $finish;

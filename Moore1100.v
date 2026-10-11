@@ -19,36 +19,27 @@ end
 
 //Combinational Next State Logic
 always @(PS or P1 or P2) begin
+    NS = PS; //Hold state if nothing pressed
     case (PS)
         S0: begin
-            if (P1 == 1'b1)
-                NS = S1;
-            else
-                NS = S0;
+            if (P1 == 1) NS = S1;
+            else if (P2 == 1) NS = S0; 
         end
         S1: begin
-            if (P1 == 1'b1)
-                NS = S2;
-            else
-                NS = S0;
+            if (P1 == 1) NS = S2;
+            else if (P2 == 1) NS = S0;
         end
         S2: begin
-            if (P2 == 1'b1)
-                NS = S3;
-            else
-                NS = S0;
+            if (P2 == 1) NS = S3;
+            else if (P1 == 1)NS = S0;
         end
         S3: begin
-            if (P2 == 1'b1)
-                NS = S4;
-            else
-                NS = S0;
+            if (P2 == 1) NS = S4;
+            else if (P1 == 1) NS = S0;
         end
         S4: begin
-            if (P1 == 1'b1)
-                NS = S1;
-            else
-                NS = S0;
+            if (P1 == 1) NS = S1;
+            else if (P2 == 1) NS = S0;
         end
         default: NS = S0;
     endcase
