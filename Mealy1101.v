@@ -18,7 +18,7 @@ begin
         PS <= NS;
 end
 
-always @(P*)
+always @(*)
 begin 
 //Hold State if neither button is pressed
 Z = 0;
