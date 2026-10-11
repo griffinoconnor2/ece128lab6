@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module Mealy1101_tb;
     reg P1, P2, R, clk;
     wire Z;
