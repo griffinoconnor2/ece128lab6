@@ -29,8 +29,8 @@ initial begin
 
     //Test 2: Failed Sequence
     #10 P1 = 1; P2 = 0; //(S1)
-    #10; //Hold inputs (S2)
-    #10; //Hold inputs again to remain in place (S2)
+    #10 P0 = 0; P2 = 1; //Break expected Sequence (S0)
+    #10; //Hold inputs again to remain in place (S0)
 
     //Reset before next test
     #10 R = 1;
