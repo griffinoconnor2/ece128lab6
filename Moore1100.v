@@ -31,7 +31,7 @@ always @(PS or P1 or P2) begin
         end
         S2: begin
             if (P2 == 1) NS = S3;
-            else if (P1 == 1)NS = S0;
+            else if (P1 == 1) NS = S2;
         end
         S3: begin
             if (P2 == 1) NS = S4;
