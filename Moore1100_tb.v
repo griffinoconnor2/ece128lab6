@@ -25,16 +25,20 @@ initial begin
     #10 P1 = 0; P2 = 1; //Input '0' (S3)
     #10; //hold inputs, Z should evalutate to 1 (S4)
 
-    #10 P1 = 0; P2 = 0; //release, default to S0
+    #10 P1 = 0; P2 = 0; //release, Hold (S4)
 
     //Test 2: Failed Sequence
     #10 P1 = 1; P2 = 0; //(S1)
     #10; //Hold inputs (S2)
-    #10; //Hold inputs again to break sequence (S2)
+    #10; //Hold inputs again to remain in place (S2)
+
+    //Reset before next test
+    #10 R = 1;
+    #10 R = 0;
 
     //Test 3: Full Sequence Correct w/ Hold Test (1100)
-    #10 P1 = 1; P2 = 0; //(S2)
-    #10 P1 = 0; P2 = 0; //Test state hold (S2)
+    #10 P1 = 1; P2 = 0; //(S1)
+    #10 P1 = 0; P2 = 0; //Test state hold (S1)
     #10 P1 = 1; P2 = 0; //(S2)
     #10 P1 = 0; P2 = 0; //Test state hold (S2)
     #10 P1 = 0; P2 = 1; //(S3)
